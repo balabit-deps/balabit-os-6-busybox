@@ -33,3 +33,18 @@ CVE-2014-9645.patch
 # Ubuntu patches
 test-bin.patch
 static-sh-alias.patch
+CVE-2011-5325-1.patch
+CVE-2011-5325-2.patch
+CVE-2016-2147-1.patch
+CVE-2016-2147-2.patch
+CVE-2016-2148.patch
+CVE-2017-15873.patch
+CVE-2017-16544.patch
+CVE-2011-5325-3.patch
+CVE-2011-5325-4.patch
+CVE-2011-5325-5.patch
+CVE-2018-1000517.patch
+CVE-2018-20679.patch
+CVE-2019-5747.patch
+CVE-2015-9261-1.patch
+CVE-2015-9261-2.patch

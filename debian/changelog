@@ -1,3 +1,68 @@
+busybox (1:1.22.0-15ubuntu1.4) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: directory traversal via tar symlink extraction
+    - debian/patches/CVE-2011-5325-1.patch: postpone creation of symlinks
+      with "suspicious" targets in archival/libarchive/data_extract_all.c,
+      archival/tar.c, archival/tar_symlink_attack, include/bb_archive.h,
+      testsuite/tar.tests.
+    - debian/patches/CVE-2011-5325-2.patch: do not extract unsafe symlinks
+      unless env variable is set in archival/libarchive/Kbuild.src,
+      archival/libarchive/data_extract_all.c,
+      archival/libarchive/unsafe_symlink_target.c, archival/tar.c,
+      include/bb_archive.h, libbb/copy_file.c, testsuite/tar.tests.
+    - debian/patches/CVE-2011-5325-3.patch: postpone creation of symlinks
+      with "suspicious" targets in archival/libarchive/data_extract_all.c,
+      archival/libarchive/unsafe_symlink_target.c, archival/tar.c,
+      include/bb_archive.h, testsuite/tar.tests.
+    - debian/patches/CVE-2011-5325-4.patch: extract "unsafe" symlinks
+      the same way tar/unzip does in archival/cpio.c.
+    - debian/patches/CVE-2011-5325-5.patch: fix symlink creation in
+      archival/libarchive/get_header_ar.c.
+    - CVE-2011-5325
+  * SECURITY UPDATE: integer overflow in the DHCP client
+    - debian/patches/CVE-2016-2147-1.patch: fix a SEGV on malformed
+      RFC1035-encoded domain name in networking/udhcp/domain_codec.c.
+    - debian/patches/CVE-2016-2147-2.patch: fix a warning in debug code in
+      networking/udhcp/domain_codec.c.
+    - CVE-2016-2147
+  * SECURITY UPDATE: heap-based buffer overflow in the DHCP client
+    - debian/patches/CVE-2016-2148.patch: fix OPTION_6RD parsing in
+      networking/udhcp/common.c, networking/udhcp/dhcpc.c.
+    - CVE-2016-2148
+  * SECURITY UPDATE: integer overflow in get_next_block
+    - debian/patches/CVE-2017-15873.patch: fix runCnt overflow in
+      archival/libarchive/decompress_bunzip2.c.
+    - CVE-2017-15873
+  * SECURITY UPDATE: code execution in tab autocomplete feature
+    - debian/patches/CVE-2017-16544.patch: check for control characters in
+      libbb/lineedit.c.
+    - CVE-2017-16544
+  * SECURITY UPDATE: DoS in unzip operations
+    - debian/patches/CVE-2015-9261-1.patch: test for a bad archive in
+      archival/libarchive/decompress_gunzip.c, added test in
+      testsuite/unzip.tests.
+    - debian/patches/CVE-2015-9261-2.patch: further fix decompression code
+      in archival/libarchive/decompress_gunzip.c, testsuite/unzip.tests.
+    - CVE-2015-9261
+  * SECURITY UPDATE: buffer overflow in wget
+    - debian/patches/CVE-2018-1000517.patch: check chunk length in
+      networking/wget.c.
+    - CVE-2018-1000517
+  * SECURITY UPDATE: out-of-bounds read in udhcp
+    - debian/patches/CVE-2018-20679.patch: check that 4-byte options are
+      indeed 4-byte in networking/udhcp/common.*,
+      networking/udhcp/dhcpc.c, networking/udhcp/dhcpd.c.
+    - CVE-2018-20679
+  * SECURITY UPDATE: incomplete fix for out-of-bounds read in udhcp
+    - debian/patches/CVE-2019-5747.patch: when decoding DHCP_SUBNET, ensure
+      it is 4 bytes long in networking/udhcp/common.*,
+      networking/udhcp/dhcpc.c.
+    - CVE-2019-5747
+  * debian/rules: fix nocheck test so test suite gets run during build and
+    set SKIP_INTERNET_TESTS=y.
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 06 Mar 2019 11:51:19 -0500
+
 busybox (1:1.22.0-15ubuntu1) wily; urgency=low
 
   * Merge from Debian unstable (LP: #1486231).  Remaining changes:
