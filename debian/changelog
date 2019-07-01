@@ -1,3 +1,11 @@
+busybox (1:1.22.0-15ubuntu1.4bb1) xenial; urgency=medium
+
+  * debian/rules: set TESTSUIT_ENV variable for taskset tests
+   -  SHELL environment variable was empty in case of taskset test,
+      that's why the tests failed.
+
+ -- Gyorgy Kunert-Tim <gyorgy.kunert-tim@balabit.com>  Mon, 01 Jul 2019 11:32:56 +0200
+
 busybox (1:1.22.0-15ubuntu1.4) xenial-security; urgency=medium
 
   * SECURITY UPDATE: directory traversal via tar symlink extraction
